@@ -1,37 +1,48 @@
 package Sol_Agregacion;
-
 import java.util.Random;
 import java.util.Scanner;
 
 class Asignatura{
-    public String nombreAsignatura;  public double nota1;  public double nota2;
-    public double promedio;  public double suple;  public boolean estado;
+    public String nombreAsignatura;  
+    public double nota1;  
+    public double nota2;
+    public double promedio;  
+    public double suple;  
+    public boolean estado;
     public Asignatura(String nombreAsignatura, double nota1, double nota2) {
-        this.nombreAsignatura = nombreAsignatura; this.nota1 = nota1; this.nota2 = nota2; }
+        this.nombreAsignatura = nombreAsignatura; this.nota1 = nota1; this.nota2 = nota2; 
+    }
     public void setSuple(double suple) {
-        this.suple = suple;    }
+        this.suple = suple;    
+    }
     public boolean isEstado() {
-        return estado;    }
+        return estado;    
+    }
     public void calcularPromedio(){
-        this.promedio = (this.nota1 + this.nota2) /2; }
+        this.promedio = (this.nota1 + this.nota2) /2; 
+    }
     public void determinarEstado(double nota){
-        this.estado = (nota>7) ? true : false ; }
+        this.estado = (nota>7) ? true : false ; 
+    }
     @Override
     public String toString() {
         return String.format("Asignatura{nombreAsignatura=%s, nota1=%.2f, nota2=%.2f, "
                            + "promedio=%.2f, suple=%.2f, estado=%s}", 
                             this.nombreAsignatura, this.nota1, this.nota2, 
-                            this.promedio, this.suple, this.estado); }    
+                            this.promedio, this.suple, this.estado); 
+    }    
 }
 class Estudiante{
     public String nombreEst;
     public Asignatura asignatura;
     public Estudiante(String nombreEst, Asignatura asignatura) {
         this.nombreEst = nombreEst;
-        this.asignatura = asignatura; }
+        this.asignatura = asignatura; 
+    }
     @Override
     public String toString() {
-        return "Estudiante{" + "nombreEst=" + nombreEst + ", asignatura=" + asignatura + '}'; }
+        return "Estudiante{" + "nombreEst=" + nombreEst + ", asignatura=" + asignatura + '}'; 
+    }
 }
 public class EjecutorEstudiante {
     public static void main(String[] args) {
