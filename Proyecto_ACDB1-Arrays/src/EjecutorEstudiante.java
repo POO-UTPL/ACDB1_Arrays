@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,6 +15,14 @@ class Asignatura{
     public void setSuple(double suple) {
         this.suple = suple;    
     }
+
+    public double getSuple() {
+        return suple;
+    }
+    
+    public double getPromedio() {
+        return promedio;
+    }
     public boolean isEstado() {
         return estado;    
     }
@@ -25,48 +34,48 @@ class Asignatura{
     }
     @Override
     public String toString() {
-        return String.format("Asignatura{nombreAsignatura=%s, nota1=%.2f, nota2=%.2f, "
-                           + "promedio=%.2f, suple=%.2f, estado=%s}", 
+        return String.format("Asignatura{nombreAsignatura = %s, nota1 = %.2f, nota2 = %.2f, "
+                           + "promedio = %.2f, suple = %.2f, estado = %s}", 
                             this.nombreAsignatura, this.nota1, this.nota2, 
                             this.promedio, this.suple, this.estado); 
     }    
 }
 class Estudiante{
     public String nombreEst;
-    public Asignatura asignatura;
-    public Estudiante(String nombreEst, Asignatura asignatura) {
+    public Asignatura asignaturas[];
+    public Estudiante(String nombreEst, Asignatura[] asignaturas) {
         this.nombreEst = nombreEst;
-        this.asignatura = asignatura; 
+        this.asignaturas = asignaturas;
     }
     @Override
     public String toString() {
-        return "Estudiante{" + "nombreEst=" + nombreEst + ", asignatura=" + asignatura + '}'; 
+        return "Estudiante{" + "nombreEst=" + nombreEst + ", asignaturas=" + Arrays.toString(asignaturas) + '}';
     }
 }
 public class EjecutorEstudiante {
     public static void main(String[] args) {
         Random ale = new Random();
         Scanner tcl = new Scanner(System.in);
-        String nombreAsignatura, nombreEst;
-        double nota1, nota2, suple;
-        while(true){
-            System.out.print("Nomb.Asig: ");
-            nombreAsignatura = tcl.nextLine();
-            nota1 = ale.nextDouble(10);
-            nota2 = ale.nextDouble(10);
-            Asignatura asignatura = new Asignatura(nombreAsignatura, nota1, nota2);
-            System.out.print("Nomb.Est: ");
-            nombreEst = tcl.nextLine();
-            Estudiante est1 = new Estudiante(nombreEst, asignatura);
+        String nombreEst = "Jorge";
+        //SINTAXIS DE ARREGLO DE OBJETOS:
+        //TIPO_DATO nombArr [ ] = new TIPO_DATO[tamanioArreglo]; ejemplo:
+        //Asignatura asignaturas[] = new Asignatura[2];
+        //TIPO_DATO nombArr [ ] = {new TIPO_DATO(), new TIPO_DATO(), .., ..};
+        Asignatura asignaturas[] = { new Asignatura( "POO",      ale.nextDouble(10), ale.nextDouble(10) ), 
+                                     new Asignatura( "Est.Dist", ale.nextDouble(10), ale.nextDouble(10) )}; 
+        Estudiante est1 = new Estudiante(nombreEst, asignaturas);
+        System.out.println("Est1: " + est1);
+        for (Asignatura asignatura : asignaturas)
+        {
             asignatura.calcularPromedio();
-            asignatura.determinarEstado(est1.asignatura.promedio);
-            System.out.println(est1);
-            if (!est1.asignatura.isEstado()) {
-                suple = ale.nextDouble(10);
-                est1.asignatura.setSuple(suple);
-                est1.asignatura.determinarEstado(suple);
-                System.out.println(est1);
+            asignatura.determinarEstado(asignatura.getPromedio());
+            if(!asignatura.isEstado())
+            {
+                asignatura.setSuple(ale.nextDouble(10));
+                asignatura.determinarEstado(asignatura.getSuple());
+                       
             }
         }
+        System.out.println("Est1: " + est1);
     }
 }
