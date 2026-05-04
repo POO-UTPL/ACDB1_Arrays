@@ -1,4 +1,3 @@
-package Sol_Agregacion;
 import java.util.Random;
 import java.util.Scanner;
 
