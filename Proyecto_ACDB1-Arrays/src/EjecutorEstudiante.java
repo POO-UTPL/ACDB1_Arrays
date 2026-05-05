@@ -65,15 +65,12 @@ public class EjecutorEstudiante {
                                      new Asignatura( "Est.Dist", ale.nextDouble(10), ale.nextDouble(10) )}; 
         Estudiante est1 = new Estudiante(nombreEst, asignaturas);
         System.out.println("Est1: " + est1);
-        for (Asignatura asignatura : asignaturas)
-        {
+        for (Asignatura asignatura : asignaturas) {
             asignatura.calcularPromedio();
             asignatura.determinarEstado(asignatura.getPromedio());
-            if(!asignatura.isEstado())
-            {
+            if(!asignatura.isEstado())            {
                 asignatura.setSuple(ale.nextDouble(10));
                 asignatura.determinarEstado(asignatura.getSuple());
-                       
             }
         }
         System.out.println("Est1: " + est1);
