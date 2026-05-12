@@ -39,6 +39,23 @@ class Estudiante{
 }
 public class EjecutorEstudiante_ArregloDINAMICOS {
     public static void main(String[] args) {
+        Random ale = new Random();
+        String nombAsig [] = {"POO", "EstDat", "Mate", "Estadis", "Algebra", "DB"};
+        ArrayList<Asignatura> asignaturas = new ArrayList();
+        int limAsig = ale.nextInt(5);
+        for (int i = 0; i < limAsig; i++) {
+            String nombreAsignatura = nombAsig[i];
+            double notas1 = ale.nextDouble(10);
+            double notas2 = ale.nextDouble(10);
+            asignaturas.add(new Asignatura(nombreAsignatura, notas1, notas2));
+            asignaturas.get(i).calcularPromedio();
+            asignaturas.get(i).determinarEstado(asignaturas.get(i).getPromedio());
+            if (!asignaturas.get(i).isEstado()){
+                asignaturas.get(i).setSuple(ale.nextDouble(10));
+                asignaturas.get(i).determinarEstado(asignaturas.get(i).getSuple());
+            }
+            System.out.println(asignaturas.get(i));            
+        }
         
     }
 }
