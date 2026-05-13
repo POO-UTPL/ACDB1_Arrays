@@ -85,6 +85,7 @@ public class EjecutorEstudiante_ArregloDINAMICOS {
             asignaturas.add(new Asignatura(nombreAsignatura, notas1, notas2));
         }
         Estudiante est1 = new Estudiante("Junior", asignaturas);
+        
         System.out.println("******** DATOS DE ENTRADA GENERADOS ********");
         System.out.println(est1);
         //PROCESAMIENTO DE LOS DATOS
@@ -98,5 +99,8 @@ public class EjecutorEstudiante_ArregloDINAMICOS {
         }
         System.out.println("******** DATOS SALIDA / RESULTADOS ********");
         System.out.println(est1);
+        
+        System.out.println("******** CUANTAS Y CUALES SON LAS MATERIAS APROBADAS ********");
+        
     }
 }
