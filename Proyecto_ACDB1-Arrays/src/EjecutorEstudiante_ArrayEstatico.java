@@ -52,7 +52,7 @@ class Estudiante{
         return "Estudiante{" + "nombreEst=" + nombreEst + ", asignaturas=" + Arrays.toString(asignaturas) + '}';
     }
 }
-public class EjecutorEstudiante_ArregloEstatico {
+public class EjecutorEstudiante_ArrayEstatico {
     public static void main(String[] args) {
         Random ale = new Random();
         Scanner tcl = new Scanner(System.in);

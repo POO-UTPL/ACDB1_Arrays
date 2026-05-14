@@ -69,7 +69,7 @@ class Estudiante {
     }
 }
 
-public class EjecutorEstudiante_ArregloDINAMICOS {
+public class EjecutorEstudiante_ArrayDinamico {
 
     public static void main(String[] args) {
         Random ale = new Random();
@@ -101,6 +101,13 @@ public class EjecutorEstudiante_ArregloDINAMICOS {
         System.out.println(est1);
         
         System.out.println("******** CUANTAS Y CUALES SON LAS MATERIAS APROBADAS ********");
-        
+        int cantApro = 0;
+        for (int i = 0; i < asignaturas.size(); i++) {
+            if (est1.asignaturas.get(i).isEstado()){
+                cantApro++;
+                System.out.println(est1.asignaturas.get(i).nombreAsignatura);
+            }
+        }
+        System.out.println("Cantidad de aprobadas: " + cantApro);
     }
 }
